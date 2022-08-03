@@ -9,7 +9,7 @@ fn format_coords(a: usize, b: usize) -> PyResult<String> {
 
 /// A Python module implemented in Rust.
 #[pymodule]
-fn 03_geo(_py: Python, m: &PyModule) -> PyResult<()> {
+fn o3_geo(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(format_coords, m)?)?;
     Ok(())
 }
