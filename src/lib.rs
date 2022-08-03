@@ -4,7 +4,7 @@ use pyo3::prelude::*;
 /// Formats the sum of two numbers as string.
 #[pyfunction]
 fn format_coords(a: usize, b: usize) -> PyResult<String> {
-    Ok((a + b).to_string())
+    Ok(format!("{} {}", a, b))
 }
 
 /// A Python module implemented in Rust.
