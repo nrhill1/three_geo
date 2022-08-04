@@ -41,20 +41,24 @@ struct Pyramid {
     #[pyo3(get)]
     apex: Point,
     #[pyo3(get)]
-    base: Vec<Point>
+    base: Vec<Point>,
+    #[pyo3(get)]
+    y_off: f64,
+    #[pyo3(get)]
+    x_off: f64,
 }
 
 // Pyramid implementation
 #[pymethods]
 impl Pyramid {
     #[new]
-    pub fn new(base_length: f64, height: f64) -> Self {
+    pub fn new(base_length: f64, height: f64, x_off: f64, y_off: f64) -> Self {
         
-        fn create_apex(hgt: f64) -> Point {
-            Point{x: 0.0, y: 0.0, z: hgt}
+        fn create_apex(x_off: f64, y_off: f64, height: f64) -> Point {
+            Point{x: x_off, y: y_off, z: height}
         }
 
-        let apex: Point = create_apex(height);
+        let apex: Point = create_apex(x_off, y_off, height);
 
         fn create_base(bl: f64) -> Vec<Point> {
             
