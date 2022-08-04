@@ -40,7 +40,8 @@ impl Point {
 
 
 // Pyramid definition
-#[pyclass] //
+#[pyclass] 
+#[derive(Clone)]
 struct Polygon {
     #[pyo3(get)]
     points: Vec<Point>
