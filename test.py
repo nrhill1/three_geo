@@ -1,7 +1,7 @@
 from three_geo import Point, Pyramid
 
 # Point class
-new_point = Point(1, 2, 3.4)
+new_point = Point(1.0, 2, 3.4)
 
 print(new_point)
 
