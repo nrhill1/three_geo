@@ -1,9 +1,13 @@
 // pyo3 
 use pyo3::prelude::*;
-// geo primitives
+
+// geospatial crates
 use geo::{line_string, polygon};
-// geo algorithms
 use geo::ConvexHull;
+// postgres & postgis
+use postgres::{Client, NoTls};
+use postgis::{ewkb, LineString};
+
 
 // Point definition
 #[pyclass]
@@ -107,6 +111,15 @@ impl Pyramid {
         return vol
     }
 }
+
+// #[pyfunction]
+// pub fn add_pyramid_pg(pyramid: &Pyramid) -> () {
+//     let mut client = Client::connect("host=localhost user=postgres", NoTls).unwrap();
+//     for p in Pyramid.base
+//         let _ = client.execute("INSERT INTO pyramid (point) VALUES ($1)", &[]);
+// }
+
+
 
 
 #[pymodule]
