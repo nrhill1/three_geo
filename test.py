@@ -16,6 +16,7 @@ new_pyr = Pyramid(5.4, 6, -7, 0)
 print("Height: ", new_pyr.height)
 print("Base Length: ", new_pyr.base_length)
 print("Apex:  X: ", new_pyr.apex.x, " Y: ", new_pyr.apex.y, " Z: ", new_pyr.apex.z)
+print("X offset: ", new_pyr.x_off, "Y offset: ", new_pyr.y_off)
 print("Surface Area: ", new_pyr.surface_area())
 print("Volume: ", new_pyr.volume())
 

@@ -60,12 +60,12 @@ impl Pyramid {
 
         let apex: Point = create_apex(x_off, y_off, height);
 
-        fn create_base(bl: f64) -> Vec<Point> {
+        fn create_base(bl: f64, x_off: f64, y_off: f64) -> Vec<Point> {
             
             let sqrt = f64::sqrt;
             let bh = sqrt(bl);
 
-            let p1: Point = Point{x: bh * -1.0, y: bh * -1.0, z: 0.0};
+            let p1: Point = Point{x: bh * -1.0 + x_off, y: bh * -1.0 + y_off, z: 0.0};
             let p2: Point = Point{x: p1.x, y: p1.y - bl, z: 0.0};
             let p3: Point = Point{x: p2.x + bl, y: p2.y, z: 0.0};
             let p4: Point = Point{x: p3.x, y: p3.y + bl, z: 0.0};
@@ -75,7 +75,7 @@ impl Pyramid {
             return base
         }
 
-        let base: Vec<Point> = create_base(base_length);
+        let base: Vec<Point> = create_base(base_length, x_off, y_off);
 
         return Pyramid{base_length: base_length, height: height, apex: apex, base: base, x_off, y_off}
     }
@@ -83,14 +83,16 @@ impl Pyramid {
     pub fn surface_area(&self) -> f64 {
         let sqrt = f64::sqrt;
 
-        let surf_area: f64 = f64::powf(self.base_length, 2.0) + 2.0 * self.base_length * sqrt(((f64::powf(self.base_length, 2.0))/4.0)+self.height);
+        let surf_area: f64 = f64::powf(self.base_length, 2.0) 
+            + 2.0 * self.base_length 
+            * sqrt(((f64::powf(self.base_length, 2.0))/4.0)
+            + self.height);
 
         return surf_area
     }
 
     pub fn volume(&self) -> f64 {
         let vol: f64 = (self.base_length * self.base_length * self.height)/(3.0);
-
         return vol
     }
 }
