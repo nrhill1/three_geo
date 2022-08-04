@@ -3,11 +3,14 @@ use pyo3::prelude::*;
 
 // Point definition
 #[pyclass]
+#[derive(Copy, Clone)]
 struct Point {
     #[pyo3(get)]
     x: f64,
+    #[pyo3(get)]
     y: f64,
-    z: f64
+    #[pyo3(get)]
+    z: f64,
 }
 
 
@@ -16,8 +19,15 @@ struct Point {
 impl Point {
     #[new]
     pub fn new(x: f64, y: f64, z: f64) -> Self {
-        Point { x, y, z }
+        Point { x: x, y: y, z: z }
     }
+
+    #[staticmethod]
+    pub fn coords(self: &Point) -> [f64;3] {
+        let coords: [f64;3] = [self.x, self.y, self.z];
+        return coords;
+    }
+
 }
 
 // Pyramid definition
@@ -26,10 +36,13 @@ struct Pyramid {
     // Parameters for new pyramid
     #[pyo3(get)]
     base_length: f64,
+    #[pyo3(get)]
     height: f64,
     // Apex  base of the pyramid
+    #[pyo3(get)]
     apex: Point,
-    base: [Point;4] 
+    #[pyo3(get)]
+    base: Vec<Point>
 }
 
 // Pyramid implementation
@@ -44,7 +57,7 @@ impl Pyramid {
 
         let apex: Point = create_apex(height);
 
-        fn create_base(bl: f64) -> [Point;4] {
+        fn create_base(bl: f64) -> Vec<Point> {
             
             let sqrt = f64::sqrt;
             let bh = sqrt(bl);
@@ -54,20 +67,27 @@ impl Pyramid {
             let p3: Point = Point{x: p2.x + bl, y: p2.y, z: 0.0};
             let p4: Point = Point{x: p3.x, y: p3.y + bl, z: 0.0};
 
-            let base: [Point;4] = [p1, p2, p3, p4];
+            let base: Vec<Point> = vec![p1, p2, p3, p4];
 
             return base
         }
 
-        let base: [Point;4] = create_base(base_length);
+        let base: Vec<Point> = create_base(base_length);
 
         return Pyramid{base_length: base_length, height: height, apex: apex, base: base}
     }
+
+    // pub fn base_coords(self: &Pyramid) -> () {
+    //     for p in self.base.iter() {
+    //         println!("X: {}, Y: {}, Z: {}", p.x, p.y, p.z);
+    //     }
+    // }
+    
 }
 
 
 #[pymodule]
-fn three_geo(_: Python, m: &PyModule) -> PyResult<()> {
+fn three_geo(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
     m.add_class::<Point>()?;
     m.add_class::<Pyramid>()?;
 
