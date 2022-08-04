@@ -85,7 +85,6 @@ impl Pyramid {
     }
 
     pub fn volume(&self) -> f64 {
-
         let vol: f64 = (self.base_length * self.base_length * self.height)/(3.0);
 
         return vol
