@@ -23,6 +23,6 @@ print("X offset: ", new_pyr.x_off, "Y offset: ", new_pyr.y_off)
 print("Base Area: ", new_pyr.base_area())
 print("Surface Area: ", new_pyr.surface_area())
 print("Volume: ", new_pyr.volume())
-
+print("Base Points: ")
 for p in new_pyr.base:
       print("X: " + str(p.x), "Y: " + str(p.y), "Z: " + str(p.z))

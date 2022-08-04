@@ -9,4 +9,5 @@ name = "three_geo"
 crate-type = ["cdylib"]
 
 [dependencies]
+geo = "0.22.1"
 pyo3 = { version = "0.16.5", features = ["extension-module"] }
