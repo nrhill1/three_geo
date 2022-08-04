@@ -44,13 +44,16 @@ struct Pyramid {
 #[pymethods]
 impl Pyramid {
     #[new]
-    pub fn new()
+    pub fn new(apex: Point, base_length: f64, hypotenuse: f64) -> Self {
+        Pyramid {apex:, }
+    }
 }
 
 
 #[pymodule]
 fn three_geo(_: Python, m: &PyModule) -> PyResult<()> {
     m.add_class::<Point>()?;
+
 
     Ok(())
 }
