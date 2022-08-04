@@ -11,7 +11,7 @@ print("X: " + str(new_point.x),
 
 
 # Pyramid test
-new_pyr = Pyramid(5.4, 6)
+new_pyr = Pyramid(5.4, 6, -7, 0)
 
 print("Height: ", new_pyr.height)
 print("Base Length: ", new_pyr.base_length)

@@ -43,9 +43,9 @@ struct Pyramid {
     #[pyo3(get)]
     base: Vec<Point>,
     #[pyo3(get)]
-    y_off: f64,
-    #[pyo3(get)]
     x_off: f64,
+    #[pyo3(get)]
+    y_off: f64,
 }
 
 // Pyramid implementation
@@ -77,7 +77,7 @@ impl Pyramid {
 
         let base: Vec<Point> = create_base(base_length);
 
-        return Pyramid{base_length: base_length, height: height, apex: apex, base: base}
+        return Pyramid{base_length: base_length, height: height, apex: apex, base: base, x_off, y_off}
     }
 
     pub fn surface_area(&self) -> f64 {
