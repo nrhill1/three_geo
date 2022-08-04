@@ -30,7 +30,7 @@ struct Pyramid {
     base_length: f64,
     #[pyo3(get)]
     hypotenuse: f64,
-    //
+    // Points for the base of the pyramid
     #[pyo3(get)]
     p1: Point,
     #[pyo3(get)]
