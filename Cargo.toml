@@ -11,4 +11,5 @@ crate-type = ["cdylib"]
 [dependencies]
 postgis = "0.9.0"
 postgres = "0.19.3"
+rust-3d = "0.34.0"
 pyo3 = { version = "0.16.5", features = ["extension-module"] }
