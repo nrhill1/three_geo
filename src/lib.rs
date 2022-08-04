@@ -77,6 +77,13 @@ impl Pyramid {
         return Pyramid{base_length: base_length, height: height, apex: apex, base: base}
     }
 
+    pub fn surface_area(self: &Pyramid) -> f64 {
+        let sqrt = f64::sqrt;
+
+        let area: f64 = self.base_length^2 + 2*self.base_length*sqrt(((self.base_length^2)/4)+self.height);
+
+        return area
+    }
 }
 
 
