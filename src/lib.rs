@@ -2,11 +2,11 @@
 use pyo3::prelude::*;
 
 // geospatial crates
-use geo::{line_string, polygon};
-use geo::ConvexHull;
-// postgres & postgis
-use postgres::{Client, NoTls};
-use postgis::{ewkb, LineString};
+// use geo::{line_string, polygon};
+// use geo::ConvexHull;
+// // postgres & postgis
+// use postgres::{Client, NoTls};
+// use postgis::{ewkb, LineString};
 
 
 // Point definition
