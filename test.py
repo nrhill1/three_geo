@@ -20,6 +20,7 @@ print("Apex:" +
       " Y: ", new_pyr.apex.y, 
       " Z: ", new_pyr.apex.z)
 print("X offset: ", new_pyr.x_off, "Y offset: ", new_pyr.y_off)
+print("Base Area: ", new_pyr.base_area())
 print("Surface Area: ", new_pyr.surface_area())
 print("Volume: ", new_pyr.volume())
 
