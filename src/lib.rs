@@ -1,4 +1,9 @@
+// pyo3 
 use pyo3::prelude::*;
+// geo primitives
+use geo::{line_string, polygon};
+// geo algorithms
+use geo::ConvexHull;
 
 // Point definition
 #[pyclass]
