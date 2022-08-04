@@ -25,6 +25,7 @@ fn three_geo(py: Python, m: &PyModule) -> PyResult<()> {
             Point { x, y, z}
         }
     }
+    
 
     // #[pyfn(m, "format_coords")]
     // fn format_coords(_py: Python, x:f64, y:f64, z:f64) -> PyResult<String> {
