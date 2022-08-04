@@ -38,6 +38,10 @@ impl Point {
 
 }
 
+
+// // Pyramid definition
+// #[pyclass]
+
 // Pyramid definition
 #[pyclass]
 struct Pyramid {
