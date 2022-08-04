@@ -71,7 +71,7 @@ impl Pyramid {
 #[pymodule]
 fn three_geo(_: Python, m: &PyModule) -> PyResult<()> {
     m.add_class::<Point>()?;
-    m.add_class::<Point>()?;
+    m.add_class::<Pyramid>()?;
 
     Ok(())
 }
