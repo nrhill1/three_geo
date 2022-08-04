@@ -77,12 +77,6 @@ impl Pyramid {
         return Pyramid{base_length: base_length, height: height, apex: apex, base: base}
     }
 
-    // pub fn base_coords(self: &Pyramid) -> () {
-    //     for p in self.base.iter() {
-    //         println!("X: {}, Y: {}, Z: {}", p.x, p.y, p.z);
-    //     }
-    // }
-    
 }
 
 
