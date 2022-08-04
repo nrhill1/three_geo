@@ -1,4 +1,3 @@
-
 use pyo3::prelude::*;
 
 // Point definition
@@ -77,10 +76,10 @@ impl Pyramid {
         return Pyramid{base_length: base_length, height: height, apex: apex, base: base}
     }
 
-    pub fn surface_area(self: &Pyramid) -> f64 {
+    pub fn surface_area(&self) -> f64 {
         let sqrt = f64::sqrt;
 
-        let area: f64 = self.base_length^2 + 2*self.base_length*sqrt(((self.base_length^2)/4)+self.height);
+        let area: f64 = f64::powf(self.base_length, 2.0) + 2.0 * self.base_length * sqrt(((f64::powf(self.base_length, 2.0))/4.0)+self.height);
 
         return area
     }
