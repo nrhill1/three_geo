@@ -2,7 +2,7 @@
 use pyo3::prelude::*;
 
 // geospatial crates
-// use geo::{line_string, polygon};
+use geo::{line_string /*, polygon*/};
 // use geo::ConvexHull;
 // // postgres & postgis
 // use postgres::{Client, NoTls};
@@ -39,8 +39,21 @@ impl Point {
 }
 
 
-// // Pyramid definition
-// #[pyclass]
+// Pyramid definition
+#[pyclass] //
+struct Polygon {
+    #[pyo3(get)]
+    points: Vec<Point>
+}
+
+
+#[pymethods]
+impl Polygon {
+    #[new]
+    pub fn new(points: Vec<Point>) -> Self {
+        return Polygon {points}
+    }
+}
 
 // Pyramid definition
 #[pyclass]
@@ -90,7 +103,7 @@ impl Pyramid {
 
         let base: Vec<Point> = create_base(base_length, x_off, y_off);
 
-        return Pyramid{base_length, height, apex, base, x_off, y_off}
+        return Pyramid {base_length, height, apex, base, x_off, y_off}
     }
     
     pub fn base_area(&self) -> f64 {
@@ -129,7 +142,9 @@ impl Pyramid {
 #[pymodule]
 fn three_geo(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
     m.add_class::<Point>()?;
+    m.add_class::<Polygon>()?;
     m.add_class::<Pyramid>()?;
+    
 
     Ok(())
 }
