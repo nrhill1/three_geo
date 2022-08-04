@@ -79,6 +79,12 @@ impl Pyramid {
 
         return Pyramid{base_length, height, apex, base, x_off, y_off}
     }
+    
+    pub fn base_area(&self) -> f64 {
+        let ba: f64 = f64::powf(self.base_length, 2.0);
+        
+        return ba
+    }
 
     pub fn surface_area(&self) -> f64 {
         let sqrt = f64::sqrt;
@@ -92,7 +98,7 @@ impl Pyramid {
     }
 
     pub fn volume(&self) -> f64 {
-        let vol: f64 = (self.base_length * self.base_length * self.height)/(3.0);
+        let vol: f64 = (f64::powf(self.base_length, 2.0) * self.height)/(3.0);
         return vol
     }
 }
