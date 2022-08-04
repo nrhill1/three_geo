@@ -17,5 +17,7 @@ print("Height: ", new_pyr.height)
 print("Base Length: ", new_pyr.base_length)
 print("Apex:  X: ", new_pyr.apex.x, " Y: ", new_pyr.apex.y, " Z: ", new_pyr.apex.z)
 print("Surface Area: ", new_pyr.surface_area())
+print("Volume: ", new_pyr.volume())
+
 for p in new_pyr.base:
       print("X: " + str(p.x), "Y: " + str(p.y), "Z: " + str(p.z))
