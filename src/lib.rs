@@ -77,12 +77,7 @@ impl Pyramid {
 
         let base: Vec<Point> = create_base(base_length, x_off, y_off);
 
-        return Pyramid{base_length, 
-                       height, 
-                       apex, 
-                       base, 
-                       x_off, 
-                       y_off}
+        return Pyramid{base_length, height, apex, base, x_off, y_off}
     }
 
     pub fn surface_area(&self) -> f64 {
