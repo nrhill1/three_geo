@@ -1,9 +1,6 @@
 // pyo3 
 use pyo3::prelude::*;
 
-// // postgres & postgis
-// use postgres::{Client, NoTls};
-// use postgis::{ewkb, LineString};
 
 
 // Point definition
