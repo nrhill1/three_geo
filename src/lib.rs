@@ -169,6 +169,9 @@ mod tests {
 
         // surface area test
         assert_eq!(4.3166247903554, pyramid.surface_area());
+
+        // volume test
+        assert_eq!(0.8333333333333334, pyramid.volume());
         
     }
 }
