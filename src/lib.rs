@@ -151,16 +151,16 @@ mod tests {
 
     #[test]
     fn test_pyramid() {
-        let pyramid = Pyramid::new( 1.0, 2.5, 1.9, -2.5 );
+        let pyramid = Pyramid::new( 1.0, 2.5, 2.0, -2.5 );
 
         // apex tests
-        assert_eq!(1.9, pyramid.apex.x);
+        assert_eq!(2.0, pyramid.apex.x);
         assert_eq!(-2.5, pyramid.apex.y);
         assert_eq!(2.5, pyramid.apex.z);
 
         // base tests
         assert!(pyramid.base.len() == 4);
-        assert!(pyramid.base[0].x == 0.9);
+        assert!(pyramid.base[0].x == 1.0);
         assert!(pyramid.base[0].y == -3.5);
         assert!(pyramid.base[0].z == 0.0);
 
@@ -168,7 +168,7 @@ mod tests {
         assert_eq!(1.0, pyramid.base_area());
 
         // surface area test
-        assert_eq!(6.75, pyramid.surface_area());
+        assert_eq!(4.3166247903554, pyramid.surface_area());
         
     }
 }
