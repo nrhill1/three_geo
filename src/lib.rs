@@ -164,6 +164,11 @@ mod tests {
         assert!(pyramid.base[0].y == -3.5);
         assert!(pyramid.base[0].z == 0.0);
 
+        // base area test
+        assert_eq!(1.0, pyramid.base_area());
+
+        // surface area test
+        assert_eq!(6.75, pyramid.surface_area());
         
     }
 }
