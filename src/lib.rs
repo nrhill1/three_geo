@@ -138,9 +138,19 @@ fn three_geo(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
 
 #[cfg(test)]
 mod tests {
+    use super::*;
 
     #[test]
-    fn point_test() {
-        
+    fn test_point() {
+        let point = Point::new(1.0, 2.0, 3.4);
+
+        assert_eq!(1.0, point.x);
+        assert_eq!(2.0, point.y);
+        assert_eq!(3.4, point.z);
     }
+
+    // fn test_pyramid() {
+    //     let pyramid = Pyramid::new(10.0, height: 10.0, x_off: -1.0, y_off: 3.5);
+    // }
 }
+
