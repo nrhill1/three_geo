@@ -144,6 +144,7 @@ mod tests {
     fn test_point() {
         let point = Point::new(1.0, 2.0, 3.4);
 
+        // point coord tests
         assert_eq!(1.0, point.x);
         assert_eq!(2.0, point.y);
         assert_eq!(3.4, point.z);
@@ -153,9 +154,12 @@ mod tests {
     fn test_pyramid() {
         let pyramid = Pyramid::new( 1.0, 2.5, 1.9, -2.5 );
 
+        // apex tests
         assert_eq!(1.9, pyramid.apex.x);
         assert_eq!(-2.5, pyramid.apex.y);
         assert_eq!(2.5, pyramid.apex.z);
+
+
         
     }
 }
