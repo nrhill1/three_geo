@@ -124,14 +124,6 @@ impl Pyramid {
     }
 }
 
-// #[pyfunction]
-// pub fn add_pyramid_pg(pyramid: &Pyramid) -> () {
-//     let mut client = Client::connect("host=localhost user=postgres", NoTls).unwrap();
-//     for p in Pyramid.base
-//         let _ = client.execute("INSERT INTO pyramid (point) VALUES ($1)", &[]);
-// }
-
-
 
 #[pymodule]
 fn three_geo(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
@@ -141,4 +133,14 @@ fn three_geo(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
     
 
     Ok(())
+}
+
+
+#[cfg(test)]
+mod tests {
+
+    #[test]
+    fn point_test() {
+        
+    }
 }
