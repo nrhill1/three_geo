@@ -159,6 +159,10 @@ mod tests {
         assert_eq!(-2.5, pyramid.apex.y);
         assert_eq!(2.5, pyramid.apex.z);
 
+        // base tests
+        assert!(pyramid.base[0].x == 0.9);
+        assert!(pyramid.base[0].y == -3.5);
+        assert!(pyramid.base[0].z == 0.0);
 
         
     }
