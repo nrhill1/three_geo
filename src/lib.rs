@@ -149,8 +149,14 @@ mod tests {
         assert_eq!(3.4, point.z);
     }
 
-    // fn test_pyramid() {
-    //     let pyramid = Pyramid::new(10.0, height: 10.0, x_off: -1.0, y_off: 3.5);
-    // }
+    #[test]
+    fn test_pyramid() {
+        let pyramid = Pyramid::new( 1.0, 2.5, 1.9, -2.5 );
+
+        assert_eq!(1.9, pyramid.apex.x);
+        assert_eq!(-2.5, pyramid.apex.y);
+        assert_eq!(2.5, pyramid.apex.z);
+        
+    }
 }
 
