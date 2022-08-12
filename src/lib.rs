@@ -218,6 +218,14 @@ mod tests {
         assert_eq!(cylinder.volume(), std::f64::consts::PI * 10.0);
     }
 
+    fn test_cone() {
+        let cone = Cone::new(2.5, 5.0);
+
+        // prop tests
+        assert!(cone.radius == 2.5);
+        assert!(cone.height == 5.0);
+    }
+
 
 }
 
