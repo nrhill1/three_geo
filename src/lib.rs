@@ -118,6 +118,9 @@ impl Cylinder {
         return Cylinder {radius, height}
     }
 
+    pub fn base_area(&self) -> f64 {
+
+    }
 }
 
 
