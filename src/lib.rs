@@ -184,7 +184,13 @@ mod tests {
     fn test_cylinder() {
         let cylinder  = Cylinder::new(1.0, 10.0);
 
+        // prop tests
         assert!(cylinder.radius == 1.0);
+        assert!(cylinder.height == 10.0);
+
+        // function tests
+        assert_eq!(cylinder.base_area(), std::f64::consts::PI)
+        assert_eq!(cylinder.volume(), std::f64::consts::PI * 10)
     }
 
 
