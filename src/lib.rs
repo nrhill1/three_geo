@@ -130,6 +130,32 @@ impl Cylinder {
     }
 }
 
+#[pyclass]
+struct Cone {
+    radius: f64,
+    height: f64,
+}
+
+#[pymethods]
+impl Cone {
+    #[new]
+    pub fn new(radius: f64, height: f64) -> Self {
+        return Cone {radius, height}
+    }
+
+    pub fn base_area(&self) -> f64 {
+        let ba: f64 = std::f64::consts::PI * f64::powf(self.radius, 2.0);
+        
+        return ba
+    }
+
+    pub fn volume(&self) -> f64 {
+        let vol: f64 =  self.base_area() * self.height/3.0;
+
+        return vol
+    }
+}
+
 
 #[pymodule]
 fn three_geo(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
