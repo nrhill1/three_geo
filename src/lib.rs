@@ -1,5 +1,3 @@
-use std::f32::consts::PI;
-
 // pyo3 
 use pyo3::prelude::*;
 
