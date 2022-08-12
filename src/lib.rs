@@ -28,7 +28,6 @@ impl Point {
         let coords: [f64;3] = [self.x, self.y, self.z];
         return coords;
     }
-
 }
 
 // Pyramid definition
