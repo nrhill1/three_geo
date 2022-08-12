@@ -239,6 +239,7 @@ mod tests {
 
         // function tests
         assert_eq!(cone.base_area(), 19.634954084936208);
+        assert_eq!(cone.surface_area(), 63.54004615394075);
         assert_eq!(cone.volume(), 32.72492347489368);
     }
 
