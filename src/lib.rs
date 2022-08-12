@@ -180,7 +180,12 @@ mod tests {
         assert_eq!(1.0, pyramid.volume());
     }
 
-    // fn test_cylinder () {}
+    #[test]
+    fn test_cylinder() {
+        let cylinder  = Cylinder::new(1.0, 10.0);
+
+        assert!(cylinder.radius == 1.0);
+    }
 
 
 }
