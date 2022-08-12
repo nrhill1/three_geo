@@ -100,6 +100,7 @@ impl Pyramid {
 
     pub fn volume(&self) -> f64 {
         let vol: f64 = (f64::powf(self.base_length, 2.0) * self.height)/(3.0);
+
         return vol
     }
 }
@@ -153,6 +154,16 @@ impl Cone {
         let vol: f64 =  self.base_area() * self.height/3.0;
 
         return vol
+    }
+
+    pub fn surface_area(&self) -> f64 {
+        // πr(r+h2+r2)
+        let sqrt = f64::sqrt;
+        let sa = std::f64::consts::PI * self.radius 
+                    * (self.radius + sqrt(f64::powf(self.height, 2.0) 
+                    + f64::powf(self.radius, 2.0)));
+        
+        return sa
     }
 }
 
