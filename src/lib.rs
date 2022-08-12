@@ -20,13 +20,13 @@ struct Point {
 impl Point {
     #[new]
     pub fn new(x: f64, y: f64, z: f64) -> Self {
-        Point { x: x, y: y, z: z }
+        Point{x, y, z}
     }
 
     #[staticmethod]
     pub fn coords(self: &Point) -> [f64;3] {
         let coords: [f64;3] = [self.x, self.y, self.z];
-        
+
         return coords;
     }
 }
