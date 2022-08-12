@@ -125,6 +125,12 @@ impl Cylinder {
         
         return ba
     }
+
+    pub fn volume(&self) -> f64 {
+        let vol: f64 =  self.base_area() * self.height;
+
+        return vol
+    }
 }
 
 
