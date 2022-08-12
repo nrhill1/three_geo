@@ -224,6 +224,9 @@ mod tests {
         // prop tests
         assert!(cone.radius == 2.5);
         assert!(cone.height == 5.0);
+
+        // function tests
+        assert_eq!(cone.volume(), 32.72492);
     }
 
 
