@@ -218,6 +218,7 @@ mod tests {
         assert_eq!(cylinder.volume(), std::f64::consts::PI * 10.0);
     }
 
+    #[test]
     fn test_cone() {
         let cone = Cone::new(2.5, 5.0);
 
@@ -226,7 +227,8 @@ mod tests {
         assert!(cone.height == 5.0);
 
         // function tests
-        assert_eq!(cone.volume(), 32.72492);
+        assert_eq!(cone.base_area(), 19.634954084936208);
+        assert_eq!(cone.volume(), 32.72492347489368);
     }
 
 
