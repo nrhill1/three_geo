@@ -105,6 +105,12 @@ impl Pyramid {
     }
 }
 
+#[pyclass]
+struct Cylinder {
+    radius: f64,
+    height: f64,
+}
+
 
 #[pymodule]
 fn three_geo(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
@@ -153,6 +159,8 @@ mod tests {
         // volume test
         assert_eq!(0.8333333333333334, pyramid.volume());
     }
+
+    // fn test_cylinder () {}
 
 
 }
