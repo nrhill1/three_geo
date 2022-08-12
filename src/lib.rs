@@ -26,6 +26,7 @@ impl Point {
     #[staticmethod]
     pub fn coords(self: &Point) -> [f64;3] {
         let coords: [f64;3] = [self.x, self.y, self.z];
+        
         return coords;
     }
 }
