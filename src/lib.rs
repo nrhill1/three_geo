@@ -111,6 +111,15 @@ struct Cylinder {
     height: f64,
 }
 
+#[pymethods]
+impl Cylinder {
+    #[new]
+    pub fn new(radius: f64, height: f64) -> Self {
+        return Cylinder {radius, height}
+    }
+
+}
+
 
 #[pymodule]
 fn three_geo(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
