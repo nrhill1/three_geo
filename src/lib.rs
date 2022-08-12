@@ -156,7 +156,7 @@ mod tests {
 
     #[test]
     fn test_pyramid() {
-        let pyramid = Pyramid::new( 1.0, 3.0, 2.0, -2.5 );
+        let pyramid = Pyramid::new(1.0, 3.0, 2.0, -2.5);
 
         // apex tests
         assert_eq!(2.0, pyramid.apex.x);
