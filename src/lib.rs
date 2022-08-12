@@ -206,13 +206,9 @@ mod tests {
         assert!(pyramid.base[0].y == -3.5);
         assert!(pyramid.base[0].z == 0.0);
 
-        // base area test
+        // area & volume tests
         assert_eq!(1.0, pyramid.base_area());
-
-        // surface area test
         assert_eq!(7.082762530298219, pyramid.surface_area());
-
-        // volume test
         assert_eq!(1.0, pyramid.volume());
     }
 
