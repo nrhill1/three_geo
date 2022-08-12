@@ -1,3 +1,5 @@
+use std::f32::consts::PI;
+
 // pyo3 
 use pyo3::prelude::*;
 
@@ -119,7 +121,9 @@ impl Cylinder {
     }
 
     pub fn base_area(&self) -> f64 {
-
+        let ba: f64 = std::f64::consts::PI * f64::powf(self.radius, 2.0);
+        
+        return ba
     }
 }
 
