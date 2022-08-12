@@ -189,8 +189,8 @@ mod tests {
         assert!(cylinder.height == 10.0);
 
         // function tests
-        assert_eq!(cylinder.base_area(), std::f64::consts::PI)
-        assert_eq!(cylinder.volume(), std::f64::consts::PI * 10)
+        assert_eq!(cylinder.base_area(), std::f64::consts::PI);
+        assert_eq!(cylinder.volume(), std::f64::consts::PI * 10.0);
     }
 
 
