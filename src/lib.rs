@@ -110,7 +110,6 @@ impl Pyramid {
 fn three_geo(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
     m.add_class::<Point>()?;
     m.add_class::<Pyramid>()?;
-    
 
     Ok(())
 }
@@ -153,7 +152,8 @@ mod tests {
 
         // volume test
         assert_eq!(0.8333333333333334, pyramid.volume());
-        
     }
+
+
 }
 
