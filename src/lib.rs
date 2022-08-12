@@ -92,9 +92,9 @@ impl Pyramid {
         let sqrt = f64::sqrt;
 
         let sa: f64 = f64::powf(self.base_length, 2.0) 
-            + self.base_length 
-            * sqrt(((f64::powf(self.base_length * 0.5, 2.0)))
-            + f64::powf(self.height, 2.0)) * 2.0;
+                    + self.base_length 
+                    * sqrt(((f64::powf(self.base_length * 0.5, 2.0)))
+                    + f64::powf(self.height, 2.0)) * 2.0;
 
         return sa
     }
