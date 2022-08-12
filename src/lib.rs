@@ -31,24 +31,6 @@ impl Point {
 
 }
 
-
-// Pyramid definition
-#[pyclass] 
-#[derive(Clone)]
-struct Polygon {
-    #[pyo3(get)]
-    points: Vec<Point>
-}
-
-
-#[pymethods]
-impl Polygon {
-    #[new]
-    pub fn new(points: Vec<Point>) -> Self {
-        return Polygon {points}
-    }
-}
-
 // Pyramid definition
 #[pyclass]
 struct Pyramid {
@@ -127,7 +109,6 @@ impl Pyramid {
 #[pymodule]
 fn three_geo(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
     m.add_class::<Point>()?;
-    m.add_class::<Polygon>()?;
     m.add_class::<Pyramid>()?;
     
 
