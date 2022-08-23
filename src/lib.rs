@@ -1,6 +1,5 @@
-// pyo3 
+// pyo3
 use pyo3::prelude::*;
-
 
 // Point definition
 #[pyclass]
@@ -14,18 +13,17 @@ struct Point {
     z: f64,
 }
 
-
 // Point implementation
 #[pymethods]
 impl Point {
     #[new]
     pub fn new(x: f64, y: f64, z: f64) -> Self {
-        Point{x, y, z}
+        Point { x, y, z }
     }
 
     #[staticmethod]
-    pub fn coords(self: &Point) -> [f64;3] {
-        let coords: [f64;3] = [self.x, self.y, self.z];
+    pub fn coords(self: &Point) -> [f64; 3] {
+        let coords: [f64; 3] = [self.x, self.y, self.z];
 
         return coords;
     }
@@ -55,53 +53,78 @@ struct Pyramid {
 impl Pyramid {
     #[new]
     pub fn new(base_length: f64, height: f64, x_off: f64, y_off: f64) -> Self {
-        
         fn create_apex(x_off: f64, y_off: f64, height: f64) -> Point {
-            Point{x: x_off, y: y_off, z: height}
+            Point {
+                x: x_off,
+                y: y_off,
+                z: height,
+            }
         }
 
         let apex: Point = create_apex(x_off, y_off, height);
 
         fn create_base(bl: f64, x_off: f64, y_off: f64) -> Vec<Point> {
-            
             let sqrt = f64::sqrt;
             let bh = sqrt(bl);
 
-            let p1: Point = Point{x: bh * -1.0 + x_off, y: bh * -1.0 + y_off, z: 0.0};
-            let p2: Point = Point{x: p1.x, y: p1.y - bl, z: 0.0};
-            let p3: Point = Point{x: p2.x + bl, y: p2.y, z: 0.0};
-            let p4: Point = Point{x: p3.x, y: p3.y + bl, z: 0.0};
+            let p1: Point = Point {
+                x: bh * -1.0 + x_off,
+                y: bh * -1.0 + y_off,
+                z: 0.0,
+            };
+            let p2: Point = Point {
+                x: p1.x,
+                y: p1.y - bl,
+                z: 0.0,
+            };
+            let p3: Point = Point {
+                x: p2.x + bl,
+                y: p2.y,
+                z: 0.0,
+            };
+            let p4: Point = Point {
+                x: p3.x,
+                y: p3.y + bl,
+                z: 0.0,
+            };
 
             let base: Vec<Point> = vec![p1, p2, p3, p4];
 
-            return base
+            return base;
         }
 
         let base: Vec<Point> = create_base(base_length, x_off, y_off);
 
-        return Pyramid {base_length, height, apex, base, x_off, y_off}
+        return Pyramid {
+            base_length,
+            height,
+            apex,
+            base,
+            x_off,
+            y_off,
+        };
     }
-    
+
     pub fn base_area(&self) -> f64 {
         let ba: f64 = f64::powf(self.base_length, 2.0);
-        
-        return ba
+
+        return ba;
     }
 
     pub fn surface_area(&self) -> f64 {
         let sqrt = f64::sqrt;
-        let sa: f64 = f64::powf(self.base_length, 2.0) 
-                    + self.base_length 
-                    * sqrt(((f64::powf(self.base_length * 0.5, 2.0)))
-                    + f64::powf(self.height, 2.0)) * 2.0;
+        let sa: f64 = f64::powf(self.base_length, 2.0)
+            + self.base_length
+                * sqrt((f64::powf(self.base_length * 0.5, 2.0)) + f64::powf(self.height, 2.0))
+                * 2.0;
 
-        return sa
+        return sa;
     }
 
     pub fn volume(&self) -> f64 {
-        let vol: f64 = (f64::powf(self.base_length, 2.0) * self.height)/(3.0);
+        let vol: f64 = (f64::powf(self.base_length, 2.0) * self.height) / (3.0);
 
-        return vol
+        return vol;
     }
 }
 
@@ -115,19 +138,19 @@ struct Cylinder {
 impl Cylinder {
     #[new]
     pub fn new(radius: f64, height: f64) -> Self {
-        return Cylinder {radius, height}
+        return Cylinder { radius, height };
     }
 
     pub fn base_area(&self) -> f64 {
         let ba: f64 = std::f64::consts::PI * f64::powf(self.radius, 2.0);
-        
-        return ba
+
+        return ba;
     }
 
     pub fn volume(&self) -> f64 {
-        let vol: f64 =  self.base_area() * self.height;
+        let vol: f64 = self.base_area() * self.height;
 
-        return vol
+        return vol;
     }
 }
 
@@ -141,31 +164,30 @@ struct Cone {
 impl Cone {
     #[new]
     pub fn new(radius: f64, height: f64) -> Self {
-        return Cone {radius, height}
+        return Cone { radius, height };
     }
 
     pub fn base_area(&self) -> f64 {
         let ba: f64 = std::f64::consts::PI * f64::powf(self.radius, 2.0);
-        
-        return ba
+
+        return ba;
     }
 
     pub fn volume(&self) -> f64 {
-        let vol: f64 =  self.base_area() * self.height/3.0;
+        let vol: f64 = self.base_area() * self.height / 3.0;
 
-        return vol
+        return vol;
     }
 
     pub fn surface_area(&self) -> f64 {
         let sqrt = f64::sqrt;
-        let sa = std::f64::consts::PI * self.radius 
-                    * (self.radius + sqrt(f64::powf(self.height, 2.0) 
-                    + f64::powf(self.radius, 2.0)));
-        
-        return sa
+        let sa = std::f64::consts::PI
+            * self.radius
+            * (self.radius + sqrt(f64::powf(self.height, 2.0) + f64::powf(self.radius, 2.0)));
+
+        return sa;
     }
 }
-
 
 #[pymodule]
 fn three_geo(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
@@ -174,7 +196,6 @@ fn three_geo(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
 
     Ok(())
 }
-
 
 #[cfg(test)]
 mod tests {
@@ -213,7 +234,7 @@ mod tests {
 
     #[test]
     fn test_cylinder() {
-        let cylinder  = Cylinder::new(1.0, 10.0);
+        let cylinder = Cylinder::new(1.0, 10.0);
 
         // prop tests
         assert!(cylinder.radius == 1.0);
@@ -237,7 +258,4 @@ mod tests {
         assert_eq!(cone.surface_area(), 63.54004615394075);
         assert_eq!(cone.volume(), 32.72492347489368);
     }
-
-
 }
-
